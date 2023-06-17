@@ -26,11 +26,19 @@
     (setq banco (make-Banco))
     (setq cliente (make-Cliente))
 
-    ;Incializacion del vector con ceros
+    ;Incializacion del vector de bancos con ceros
     (setq b 0)
     (loop
         (setf (aref v_bancos b)0)
         (setq b (+ 1 b))  ; 
-        (when (> b 2)(return))
+        (when (> b 1)(return))
+    )
+
+    ;Incializacion del vector clientes con ceros
+    (setq c 0)
+    (loop
+        (setf (aref v_clientes c)0)
+        (setq c (+ 1 c))  ; 
+        (when (> c 2)(return))
     )
 )

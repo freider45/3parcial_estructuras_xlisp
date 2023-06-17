@@ -6,11 +6,11 @@
 
 
 
-(load "crearBanco.lsp")
+(load "crear.lsp")
+(load "agregarBanco.lsp")
 
 
-
-
+(crear)
 (loop
       
 	(print " ===========================================")
@@ -28,7 +28,7 @@
       (setq opcion (read))	
   	(case opcion
 		(1 
-            (registrar_banco)
+            (agregar_banco)
         )
 		(2 (print "Registro de un Cliente"))
 		(3 (print "Buscar Banco"))
