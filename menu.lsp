@@ -1,13 +1,7 @@
 
-
-
-
-
-
-
-
 (load "crear.lsp")
 (load "agregarBanco.lsp")
+(load "validar.lsp")
 
 
 (crear)
