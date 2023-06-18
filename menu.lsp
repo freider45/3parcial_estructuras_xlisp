@@ -3,7 +3,9 @@
 (load "1agregarBanco.lsp")
 (load "2agregarCliente.lsp")
 (load "3buscarBancoNit.lsp")
-(load "buscarBanco.lsp")
+(load "4buscarBancoCliente.lsp")
+(load "5clientesFemenino")
+(load "buscar.lsp")
 (load "validar.lsp")
 
 (crear)
@@ -33,8 +35,12 @@
 		(3 
 			(buscar_banco_nit)
 		)
-		(4 (print "Buscar Cliente en un Banco"))
-		(5 (print "Consultar el Numero de clientes Femenino"))
+		(4 
+			(buscar_banco_cliente)
+		)
+		(5 
+			(clientes_femenino)
+		)
 	    (otherwise nil)
 	)
 	(when (eq opcion 6) (print "fin programa")(return))

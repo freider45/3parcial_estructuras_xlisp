@@ -2,6 +2,9 @@
 ;su informacion y la de sus clientes registrados
 
 (defun buscar_banco_nit()
+    (format t "~%-----------------------------------~%")
+    (format t "|           Buscar Banco          |~%")
+    (format t "-----------------------------------~%")
     (print "Digite el nit del banco: ")
     (setq nit (read))
     (setq nit (validar_numero nit))                     
