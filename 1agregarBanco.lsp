@@ -29,6 +29,7 @@
                 (setf (Banco-num_empleados banco) num_empleados)
                 ;Agregamos el banco al vector de bancos 
                 (setf (aref v_bancos pos) banco)
+                (format t "~%Banco registrado con exito!~%")
                 ;Una vez se registra el banco, salimos   
                 (return)
             )
@@ -36,6 +37,6 @@
             (setq pos (+ 1 pos))
         )
         ;Cuando se llenen los espacios de registro, ya no deja registrar mas
-        (when (> pos 1)(format t "~%No se puede registrar mas bancos~%")(return))
+        (when (> pos 1)(format t "~%No se puede registrar mas bancos por el momento~%")(return))
     )
 )

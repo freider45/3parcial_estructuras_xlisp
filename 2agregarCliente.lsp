@@ -32,10 +32,12 @@
                         (setq nombre (read-line))
                         (setf (Cliente-nombre cliente) nombre)
                         (print "Escriba el genero: ")
-                        (setq genero (read-line))   
-                        (setf (Cliente-genero cliente) genero)
+                        (setq genero (read-line)) 
+                        (setq genero (validar_genero genero))  
+                        (setf (Cliente-genero cliente) (string-upcase genero))
                         ;Agregamos el cliente al vector de clientes del banco
                         (setf (aref (Banco-v_clientes banco) pos) cliente) 
+                        (format t "~%Cliente registrado con exito!~%")
                         ;Se registra el cliente y se termina 
                         (return)
                     )
@@ -43,7 +45,7 @@
                     (setq pos (+ 1 pos))
                 )
                 ;Cuando no hay mas espacios disponibles
-                (when (> pos 2)(format t "~%No se puede registrar mas clientes a este banco~%")(return))
+                (when (> pos 2)(format t "~%No se puede registrar mas clientes a este banco por el momento~%")(return))
             )
         )
         (format t "~%El banco con nit ~D no existe, no se puede registrar cliente~%"nit)
