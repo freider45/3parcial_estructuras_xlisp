@@ -1,8 +1,10 @@
 
-(load "crear.lsp")
-(load "agregarBanco.lsp")
+(load "0crear.lsp")
+(load "1agregarBanco.lsp")
+(load "2agregarCliente.lsp")
+(load "3buscarBancoNit.lsp")
+(load "buscarBanco.lsp")
 (load "validar.lsp")
-
 
 (crear)
 (loop
@@ -20,12 +22,17 @@
 	(format t" ~%")
 	(print "   Digite la opcion:")
       (setq opcion (read))	
+	  (setq opcion (validar_numero opcion))
   	(case opcion
 		(1 
             (agregar_banco)
         )
-		(2 (print "Registro de un Cliente"))
-		(3 (print "Buscar Banco"))
+		(2 
+			(agregar_cliente)
+		)
+		(3 
+			(buscar_banco_nit)
+		)
 		(4 (print "Buscar Cliente en un Banco"))
 		(5 (print "Consultar el Numero de clientes Femenino"))
 	    (otherwise nil)
