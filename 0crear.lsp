@@ -29,6 +29,6 @@
     (loop
         (setf (aref v_bancos b)0)
         (setq b (+ 1 b))  ; 
-        (when (> b 1)(return))
+        (when (> b (1- (length v_bancos)))(return))
     )
 )

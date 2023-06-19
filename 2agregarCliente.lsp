@@ -5,14 +5,10 @@
 (defun agregar_cliente()
     (format t "~%-----------------------------------~%")
     (format t "|         Registrar Cliente        |~%")
-    (format t "-----------------------------------~%")
-    ;Pedimos el nit para saber a que vango se desea registrar el cliente
-    (print "Digite el nit del banco al que desea registrarse: ")
-    (setq nit (read))
-    (setq nit (validar_numero nit))      
+    (format t "-----------------------------------~%")    
     ;Creamos la instancia del banco y le asignamos lo que nos retorne la funcion de buscar              
     (setq banco (make-Banco))
-    (setq banco (buscar_banco nit))   
+    (setq banco (buscar_banco))   
     ;Validamos que el banco que se busco sea distinto de nil, en caso contrario se imprime el mensaje     
     (if banco
         (progn 
@@ -45,9 +41,10 @@
                     (setq pos (+ 1 pos))
                 )
                 ;Cuando no hay mas espacios disponibles
-                (when (> pos 2)(format t "~%No se puede registrar mas clientes a este banco por el momento~%")(return))
+                (when (> pos (1- (length (Banco-v_clientes banco))))(format t "~%No se puede registrar mas clientes a este banco por el momento~%")(return))
             )
         )
-        (format t "~%El banco con nit ~D no existe, no se puede registrar cliente~%"nit)
+        ;El banco no se encontro, se imprime el mensaje
+        (format t "~%El banco con el nit que ingreso no existe, no se puede registrar cliente!~%")
     )
 )

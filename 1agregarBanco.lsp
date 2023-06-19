@@ -8,7 +8,13 @@
     (format t "-----------------------------------~%")
     (setq banco (make-Banco))
     ;Creamos el vetor de clientes para cada banco e inicializamos con ceros 
-    (setf (Banco-v_clientes banco)(make-array 3 :initial-element 0))   
+    (setf (Banco-v_clientes banco)(make-array 3))  
+    (setq c 0)
+    (loop
+        (setf (aref (Banco-v_clientes banco) c)0)
+        (setq c (+ 1 c))  ; 
+        (when (> c (1- (length (Banco-v_clientes banco))))(return))
+    ) 
     (setq pos 0)
     (loop 
         ;Buscamos espacio para registrar un banco
@@ -37,6 +43,6 @@
             (setq pos (+ 1 pos))
         )
         ;Cuando se llenen los espacios de registro, ya no deja registrar mas
-        (when (> pos 1)(format t "~%No se puede registrar mas bancos por el momento~%")(return))
+        (when (> pos (1- (length v_bancos)))(format t "~%No se puede registrar mas bancos por el momento~%")(return))
     )
 )

@@ -3,14 +3,14 @@
 ;Validamos que se ingrese un numero correcto y retornamos el nuevo numero 
 (defun validar_numero(numero)
     ;En caso de que el numero no sea correcto, volvemos a pedir y retornamos el nuevo numero 
-    (if (< numero 1)
+    ;con numberp verificamos que no sea una cadena
+    (if (not (and (numberp numero) (> numero 0)))
         (progn 
             (loop 
-                (format t "El numero ~D debe ser mayor a 0. Ingrese un nuevo numero: "numero)
+                (format t "El valor ingresado no es un numero valido o no es mayor a 0. Ingrese un nuevo numero: ")
                 (setq numero (read))
-                (when (> numero 0)(return-from validar_numero numero))
-            )
-            
+                (when (and (numberp numero) (> numero 0))(return-from validar_numero numero))
+            )      
         )
         ;En caso que el numero sea correcto, retornamos el mismo numero
         (return-from validar_numero numero)
@@ -37,3 +37,4 @@
         (return-from validar_genero genero)
     )
 )
+

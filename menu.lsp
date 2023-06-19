@@ -1,3 +1,7 @@
+;;Autores:
+;Jorge Ayerbe
+;Freider Escobar
+
 
 (load "0crear.lsp")
 (load "1agregarBanco.lsp")

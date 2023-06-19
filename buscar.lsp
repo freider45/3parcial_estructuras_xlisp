@@ -1,9 +1,13 @@
 ;En este archivo nos encargamos de hacer las busquedas de los bancos 
 ;y de los clientes
 
-;Esta funcion nos permite buscar un banco, donde recibimos el nit
+;Esta funcion nos permite buscar un banco, donde pedimos el nit
 ;y en caso de encontrarlo retorna un banco, en otro caso retorna nil
-(defun buscar_banco(nit)
+(defun buscar_banco()
+    ;Pedimos el nit para saber a que vango se desea registrar el cliente
+    (print "Digite el nit del banco: ")
+    (setq nit (read))
+    (setq nit (validar_numero nit))  
     (setq banco (make-Banco))
     (setq pos 0)
     (loop 
@@ -23,13 +27,16 @@
         )
         ;buscamos hasta el tamaño del vector
         (setq pos (1+ pos))
-        (when (> pos 1)(return))
+        (when (> pos (1- (length v_bancos)))(return))
     )
 )
 
 
 ;Esta funcion se encarga de buscar un cliente de un banco especifico
-(defun buscar_cliente(banco num_identificacion)
+(defun buscar_cliente(banco)
+    (print "Digite el numero de identificacion del cliente: ")
+    (setq num_identificacion (read))
+    (setq num_identificacion (validar_numero num_identificacion))  
     (setq cliente (make-Cliente))
     (setq pos 0)
     (loop 
@@ -49,6 +56,7 @@
         )
         ;buscamos hasta el tamaño del vector
         (setq pos (1+ pos))
-        (when (> pos 2)(return))
+        (when (> pos (1- (length (Banco-v_clientes banco))))(return))
     )
 )
+
